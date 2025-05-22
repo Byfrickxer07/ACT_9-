@@ -91,7 +91,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : 'poster';
         <div class="movie-poster">
             <div class="poster-image"></div>
             <div class="poster-gradient"></div>
-            <div class="cineflix-logo">CINEFLIX</div>
+            <!-- Logo eliminado -->
             <div class="poster-content">
                 <div class="movie-title"><?php echo htmlspecialchars($title); ?></div>
                 <div class="movie-info">2025 | Acción, Aventura | 120 min</div>
@@ -104,7 +104,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : 'poster';
                     <span style="margin-left: 5px;">4.0</span>
                 </div>
                 <?php if ($type != 'thumbnail'): ?>
-                <div>Imagen de muestra para la plataforma CineFlix</div>
+                <div>Imagen de muestra</div>
                 <?php endif; ?>
             </div>
         </div>

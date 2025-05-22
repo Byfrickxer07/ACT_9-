@@ -1,0 +1,166 @@
+/* Correcciones para CineFlix */
+
+/* Corrección para las estrellas de valoración */
+.rating i {
+    color: #ffc107;
+    cursor: pointer;
+}
+
+.rating .fa-star, .rating .fas.fa-star {
+    color: #ffc107;
+}
+
+.rating .far.fa-star {
+    color: #6c757d;
+}
+
+.user-rating i {
+    cursor: pointer;
+    margin-right: 3px;
+    color: #6c757d;
+}
+
+.user-rating i.fas {
+    color: #ffc107;
+}
+
+.user-rating i:hover {
+    color: #ffc107;
+}
+
+/* Corrección para los botones "Ver" */
+.btn-ver {
+    background-color: #e50914;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    font-size: 0.875rem;
+}
+
+.btn-ver:hover {
+    background-color: #b20710;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-ver i {
+    margin-right: 5px;
+}
+
+/* Corrección para las tarjetas de películas */
+.movie-card {
+    margin-bottom: 20px;
+}
+
+.movie-card .card {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
+}
+
+.movie-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.movie-card .card-body {
+    padding: 15px;
+}
+
+.movie-card .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-card .card-text {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.movie-card .rating {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+/* Etiqueta "Nueva" */
+.nueva-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e50914;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Corrección para el footer */
+footer {
+    background-color: #0a0a0a !important;
+    margin-top: 50px;
+    padding: 30px 0;
+}
+
+footer h5 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+footer p {
+    color: #aaa;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #e50914;
+    text-decoration: none;
+}
+
+.social-icons a {
+    font-size: 1.2rem;
+    margin-right: 15px;
+}
+
+/* Correcciones para el modal */
+.modal-content {
+    background-color: #1a1a1a;
+}
+
+.modal-header {
+    border-bottom-color: #333;
+}
+
+.modal-title {
+    color: #fff;
+    font-weight: 600;
+}
+
+.modal-body {
+    color: #ddd;
+}
+
+.badge {
+    font-weight: 500;
+}
+
+/* Correcciones responsivas */
+@media (max-width: 767px) {
+    .movie-card .card-img-top {
+        height: 180px;
+    }
+}

@@ -14,6 +14,8 @@ require_once '../backend/config.php';
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Fixes CSS -->
+    <link rel="stylesheet" href="css/fixes.css">
     <!-- Animate.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
@@ -89,20 +91,20 @@ require_once '../backend/config.php';
                     $active = false;
                     ?>
                     <div class="carousel-item <?php echo $activeClass; ?>">
-                        <?php if (file_exists($movie['image_url'])): ?>
-                            <img src="<?php echo $movie['image_url']; ?>" class="d-block w-100" alt="<?php echo $movie['title']; ?>">
-                        <?php else: ?>
-                            <iframe src="assets/uploads/movie_poster.html" class="d-block w-100" style="height: 500px; border: none;" title="<?php echo $movie['title']; ?>"></iframe>
-                        <?php endif; ?>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h2 class="animate__animated animate__fadeInDown"><?php echo $movie['title']; ?></h2>
-                            <p class="animate__animated animate__fadeInUp"><?php echo $movie['description']; ?></p>
-                            <button class="btn btn-primary animate__animated animate__fadeInUp" 
-                                    data-bs-toggle="modal" 
-                                    data-bs-target="#movieModal" 
-                                    data-id="<?php echo $movie['id']; ?>">
-                                <i class="fas fa-play"></i> Ver Trailer
-                            </button>
+                      
+                        <div class="carousel-caption d-none d-md-block" style="background: none; box-shadow: none;">
+                            <h2 class="animate__animated animate__fadeInDown" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);"><?php echo $movie['title']; ?></h2>
+                            <div class="animate__animated animate__fadeInUp" style="margin: 15px 0; text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);">
+                                <p><?php echo $movie['description']; ?></p>
+                            </div>
+                            <div style="margin-top: 20px;">
+                                <a href="#" class="btn-trailer animate__animated animate__fadeInUp" 
+                                        data-bs-toggle="modal" 
+                                        data-bs-target="#movieModal" 
+                                        data-id="<?php echo $movie['id']; ?>">
+                                    <i class="fas fa-play"></i> Ver Trailer
+                                </a>
+                            </div>
                         </div>
                     </div>
                 <?php } ?>
@@ -133,19 +135,27 @@ require_once '../backend/config.php';
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $movie['title']; ?></h5>
                             <p class="card-text text-muted"><?php echo $movie['year']; ?> | <?php echo $movie['genre']; ?></p>
-                            <div class="rating mb-2">
-                                <?php for ($i = 1; $i <= 5; $i++) { 
-                                    if ($i <= $movie['rating']) {
-                                        echo '<i class="fas fa-star text-warning"></i>';
-                                    } else {
-                                        echo '<i class="far fa-star text-warning"></i>';
-                                    }
-                                } ?>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="rating">
+                                    <?php 
+                                    // Mostrar calificación numérica
+                                    echo '<span class="rating-number me-2">'.number_format($movie['rating'], 1).'</span>';
+                                    
+                                    // Mostrar estrellas
+                                    for ($i = 1; $i <= 5; $i++) { 
+                                        if ($i <= $movie['rating']) {
+                                            echo '<i class="fas fa-star text-warning"></i>';
+                                        } else {
+                                            echo '<i class="far fa-star text-warning"></i>';
+                                        }
+                                    } 
+                                    ?>
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" data-id="<?php echo $movie['id']; ?>">
+                                <a href="#" class="btn-ver" data-bs-toggle="modal" data-bs-target="#movieModal" data-id="<?php echo $movie['id']; ?>">
                                     <i class="fas fa-play"></i> Ver
-                                </button>
+                                </a>
                                 <?php if (isset($_SESSION['user_id'])): ?>
                                 <button class="btn btn-sm btn-outline-danger favorite-btn" data-id="<?php echo $movie['id']; ?>">
                                     <i class="far fa-heart"></i>
@@ -157,7 +167,7 @@ require_once '../backend/config.php';
                 </div>
             <?php } ?>
         </div>
-
+<br><br><br>
         <!-- Recently Added -->
         <h2 class="section-title mt-5">Agregadas Recientemente</h2>
         <div class="row movie-grid" id="recent-movies">
@@ -175,19 +185,27 @@ require_once '../backend/config.php';
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $movie['title']; ?></h5>
                             <p class="card-text text-muted"><?php echo $movie['year']; ?> | <?php echo $movie['genre']; ?></p>
-                            <div class="rating mb-2">
-                                <?php for ($i = 1; $i <= 5; $i++) { 
-                                    if ($i <= $movie['rating']) {
-                                        echo '<i class="fas fa-star text-warning"></i>';
-                                    } else {
-                                        echo '<i class="far fa-star text-warning"></i>';
-                                    }
-                                } ?>
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <div class="rating">
+                                    <?php 
+                                    // Mostrar calificación numérica
+                                    echo '<span class="rating-number me-2">'.number_format($movie['rating'], 1).'</span>';
+                                    
+                                    // Mostrar estrellas
+                                    for ($i = 1; $i <= 5; $i++) { 
+                                        if ($i <= $movie['rating']) {
+                                            echo '<i class="fas fa-star text-warning"></i>';
+                                        } else {
+                                            echo '<i class="far fa-star text-warning"></i>';
+                                        }
+                                    } 
+                                    ?>
+                                </div>
                             </div>
                             <div class="d-flex justify-content-between">
-                                <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#movieModal" data-id="<?php echo $movie['id']; ?>">
+                                <a href="#" class="btn-ver" data-bs-toggle="modal" data-bs-target="#movieModal" data-id="<?php echo $movie['id']; ?>">
                                     <i class="fas fa-play"></i> Ver
-                                </button>
+                                </a>
                                 <?php if (isset($_SESSION['user_id'])): ?>
                                 <button class="btn btn-sm btn-outline-danger favorite-btn" data-id="<?php echo $movie['id']; ?>">
                                     <i class="far fa-heart"></i>
@@ -214,7 +232,13 @@ require_once '../backend/config.php';
                         <div id="videoContainer"></div>
                     </div>
                     <div class="movie-details">
-                        <p id="movieDescription">Cargando...</p>
+                        <div class="container p-0">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p id="movieDescription" class="text-break">Cargando...</p>
+                                </div>
+                            </div>
+                        </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
                                 <span class="badge bg-primary me-2" id="movieGenre">Género</span>

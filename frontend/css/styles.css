@@ -17,6 +17,13 @@ body {
 /* Carousel */
 .carousel-item {
     height: 500px;
+    position: relative;
+}
+
+.carousel-image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .carousel-item img {
@@ -25,21 +32,55 @@ body {
     filter: brightness(0.7);
 }
 
+/* Eliminado el overlay */
+
 .carousel-caption {
     bottom: 5rem;
+    max-width: 80%;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    background: none;
+}
+
+.caption-content {
+    padding: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
+    background: none;
+    box-shadow: none;
 }
 
 .carousel-caption h2 {
     font-size: 2.5rem;
     font-weight: 700;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px;
 }
 
-.carousel-caption p {
-    font-size: 1.2rem;
-    max-width: 70%;
-    margin: 0 auto 1.5rem;
+.description-wrapper {
+    max-height: 100px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.description-wrapper p {
+    font-size: 1.1rem;
+    margin: 0;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.trailer-button-container {
+    text-align: center;
+    margin-top: 15px;
 }
 
 /* Secciones */
@@ -78,13 +119,17 @@ body {
 }
 
 .card-title {
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.new-badge {
+.new-badge, .nueva-badge {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -118,10 +163,33 @@ body {
     border-color: #e50914;
 }
 
+.btn-ver, .btn-trailer {
+    background-color: #e50914;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    font-size: 0.875rem;
+}
+
+.btn-ver:hover, .btn-trailer:hover {
+    background-color: #b20710;
+    color: white;
+    text-decoration: none;
+}
+
+.btn-ver i, .btn-trailer i {
+    margin-right: 5px;
+}
+
 /* Modal */
 .modal-content {
     background-color: #2a2a2a;
     color: #fff;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .modal-header {
@@ -137,18 +205,69 @@ body {
     height: 400px;
 }
 
+.movie-details {
+    margin-top: 15px;
+}
+
+.description-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#movieDescription {
+    text-align: justify;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    line-height: 1.5;
+    white-space: normal;
+    display: block;
+    padding: 0 10px;
+}
+
 /* Rating stars */
+.rating {
+    display: flex;
+    align-items: center;
+}
+
+.rating-number {
+    font-weight: bold;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
 .rating i {
     color: #ffc107;
     cursor: pointer;
+    margin-right: 2px;
+}
+
+.rating .fa-star, .rating .fas.fa-star {
+    color: #ffc107;
+}
+
+.rating .far.fa-star {
+    color: #6c757d;
 }
 
 .user-rating i {
     cursor: pointer;
     margin-right: 3px;
+    color: #6c757d;
 }
 
-.user-rating i:hover ~ i {
+.user-rating i.fas {
+    color: #ffc107;
+}
+
+.user-rating i:hover {
     color: #ffc107;
 }
 

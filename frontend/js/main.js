@@ -59,7 +59,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.json())
                 .then(movie => {
                     document.getElementById('movieTitle').textContent = movie.title;
-                    document.getElementById('movieDescription').textContent = movie.description;
+                    
+                    // Formatear y truncar la descripción para que se ajuste al contenedor
+                    const descriptionElement = document.getElementById('movieDescription');
+                    
+                    // Dividir la descripción en oraciones para un mejor formateo
+                    const sentences = movie.description.split('. ');
+                    let formattedDescription = '';
+                    
+                    // Reconstruir la descripción con saltos de línea cada 2-3 oraciones
+                    for (let i = 0; i < sentences.length; i++) {
+                        formattedDescription += sentences[i];
+                        if (i < sentences.length - 1) {
+                            formattedDescription += '. ';
+                        }
+                    }
+                    
+                    descriptionElement.textContent = formattedDescription;
+                    descriptionElement.style.wordBreak = 'break-word';
+                    descriptionElement.style.maxWidth = '100%';
+                    descriptionElement.style.display = 'block';
+                    
                     document.getElementById('movieGenre').textContent = movie.genre;
                     document.getElementById('movieYear').textContent = movie.year;
                     
