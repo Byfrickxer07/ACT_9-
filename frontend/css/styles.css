@@ -1,0 +1,222 @@
+/* Estilos generales */
+body {
+    background-color: #141414;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    transition: background-color 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+}
+
+/* Carousel */
+.carousel-item {
+    height: 500px;
+}
+
+.carousel-item img {
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+.carousel-caption {
+    bottom: 5rem;
+}
+
+.carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.carousel-caption p {
+    font-size: 1.2rem;
+    max-width: 70%;
+    margin: 0 auto 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* Secciones */
+.section-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #e50914;
+    padding-left: 10px;
+}
+
+/* Tarjetas de películas */
+.movie-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card {
+    background-color: #2a2a2a;
+    border: none;
+    overflow: hidden;
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.movie-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.card-title {
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.new-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #e50914;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #e50914;
+    border-color: #e50914;
+}
+
+.btn-primary:hover {
+    background-color: #b20710;
+    border-color: #b20710;
+}
+
+.btn-outline-danger {
+    color: #e50914;
+    border-color: #e50914;
+}
+
+.btn-outline-danger:hover {
+    background-color: #e50914;
+    border-color: #e50914;
+}
+
+/* Modal */
+.modal-content {
+    background-color: #2a2a2a;
+    color: #fff;
+}
+
+.modal-header {
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.modal-footer {
+    border-top: 1px solid #3a3a3a;
+}
+
+#videoContainer {
+    width: 100%;
+    height: 400px;
+}
+
+/* Rating stars */
+.rating i {
+    color: #ffc107;
+    cursor: pointer;
+}
+
+.user-rating i {
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.user-rating i:hover ~ i {
+    color: #ffc107;
+}
+
+/* Search */
+.search-container {
+    position: relative;
+}
+
+#search {
+    background-color: #333;
+    border: 1px solid #444;
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .carousel-caption {
+        bottom: 1rem;
+    }
+    
+    .carousel-caption h2 {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+        display: none;
+    }
+    
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Footer */
+footer {
+    background-color: #0a0a0a !important;
+}
+
+footer a {
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.social-icons a {
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+/* Favoritos */
+.favorite-btn.active i {
+    font-weight: 900;
+    color: #e50914;
+}
